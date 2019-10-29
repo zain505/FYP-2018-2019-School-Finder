@@ -1,0 +1,16 @@
+.react-tabs__tab--selected{
+  border-top-color: rgb(0, 0, 0);
+}
+.react-tabs__tab{
+  color: orange;
+}
+.react-tabs__tab-panel--selected{
+  height: 500px !important;
+  width: 100% !important;
+  position: relative; 
+  overflow:scroll; 
+
+}
+.react-tabs__tab--disabled{
+  opacity: 0.5;
+}
