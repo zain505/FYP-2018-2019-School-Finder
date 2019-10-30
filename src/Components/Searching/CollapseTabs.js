@@ -5,6 +5,7 @@ import CollapsesecMap from './CollapsesecMap';
 import CollapsesecPhotos from './CollapsesecPhotos';
 import CollapsesecComments from './CollapsesecComments';
 import CollapsesecFees from './CollapsesecFees'
+import CollapsesecJobs from './CollapsesecJobs'
 import "../../../src/App.css"
 
 export class CollapseTabs extends Component {
@@ -18,7 +19,7 @@ export class CollapseTabs extends Component {
                         <Tab>Photos</Tab>
                         <Tab>Comments</Tab>
                         <Tab disabled={this.props.map.name.slice(0,2).toLocaleLowerCase()==="go"?true:false}>Fees Details</Tab>
-
+                        <Tab>Jobs</Tab>    
 
                     </TabList>
 
@@ -34,6 +35,9 @@ export class CollapseTabs extends Component {
                     </TabPanel>
                     <TabPanel>
                         <CollapsesecFees />
+                    </TabPanel>
+                    <TabPanel>
+                        <CollapsesecJobs />
                     </TabPanel>
                 </Tabs>
             </div>

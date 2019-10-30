@@ -12,13 +12,6 @@ import {NotificationContainer, NotificationManager} from 'react-notifications';
 
 
 class Home extends Component {
-  componentDidMount(){
-    this.createNotification()
-  }
-
-  createNotification=()=>{
-    NotificationManager.info(new Date().toDateString(),'Welcome!',3000);
-  }
   
   render() {
     

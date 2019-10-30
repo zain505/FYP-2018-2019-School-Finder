@@ -35,7 +35,6 @@ export class Modal extends Component {
                 }
             })
             .catch((err) => {
-                //console.log("error "+err.toString())
                 NotificationManager.error(err.toString(), 'Something Wrong', 9000);
             })
     }

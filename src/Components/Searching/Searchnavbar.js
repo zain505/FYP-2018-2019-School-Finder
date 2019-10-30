@@ -6,16 +6,16 @@ import Blogin from '../Home/Blogin';
 export class Searchnavbar extends Component {
     render() {
         return (
-            <div className="">
+            <div>
                 <div className="row">
-                    <div className="col-sm-2"></div>
-                    <div className="col-sm-8 mt-1">
-                        <span>
-                            <img src={school} className="float-left" style={{width:"100px",height:"30px"}} alt="Cinque Terre" />
-                        </span>
-                        <Blogin/>
+                    <div className="col-sm-12 mt-1">
+                        <div className="d-flex justify-content-between">
+                            <span>
+                                <img src={school} style={{ width: "100px", height: "30px" }} alt="Cinque Terre" />
+                            </span>
+                            <Blogin />
+                        </div>
                     </div>
-                    <div className="col-sm-2"></div>
                 </div>
             </div>
         )
