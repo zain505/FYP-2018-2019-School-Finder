@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { GoogleApiWrapper } from 'google-maps-react';
 import { Link } from 'react-router-dom';
+import spinner from "./Spinner.gif"
 const style1 = {
     height: '50px',
     borderStyle: 'outset',
@@ -16,7 +17,8 @@ export class Searchbar extends Component {
         this.state = {
             searchTerm: "",
             places: [],
-            list: []
+            list: [],
+            loading: false
 
         }
 
@@ -55,8 +57,19 @@ export class Searchbar extends Component {
 
 
     }
+    fetchData = () => {
+        this.setState({
+            loading: true
+        })
+        setTimeout(() => {
+            this.setState({
+                loading: false
+            })
+        }, 2000)
+    }
 
     render() {
+        const { loading } = this.state;
         return (
             <div>
                 <form role="search">
@@ -75,8 +88,18 @@ export class Searchbar extends Component {
                     <div className="row">
                         <div className="col-sm-12">
                             <div className="d-flex justify-content-center pt-2">
+                                {/* {
+                                    loading && <Link to="/search">
+                                    <button ref="search2" className="btn btn-primary border mr-1">
+                                        {loading && <img src={spinner} style={{ height: "25px", width: "25px" }} alt="spinner" />}
+                                        <i className="fas fa-search mr-1"></i>
+                                        <span>Search</span>
+                                    </button>
+                                </Link>
+                                } */}
                                 <Link to="/search">
                                     <button ref="search2" className="btn btn-primary border mr-1">
+                                        {loading && <img src={spinner} style={{ height: "25px", width: "25px" }} alt="spinner" />}
                                         <i className="fas fa-search mr-1"></i>
                                         <span>Search</span>
                                     </button>

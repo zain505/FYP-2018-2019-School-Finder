@@ -9,7 +9,7 @@ const mapStyle = {
 
 export class Googlemap extends Component {
     render() {
-        console.log("props",this.props)
+        console.log("props", this.props)
         if (this.props.coords != null) {
             return (<div className="map-responsive">
                 <div>
@@ -24,7 +24,7 @@ export class Googlemap extends Component {
                         }}
                     >
                         <Marker
-                            
+
                             position={{
                                 lat: this.props.coords.lat,
                                 lng: this.props.coords.lng
@@ -35,7 +35,7 @@ export class Googlemap extends Component {
 
 
                         {this.props.myplaces.map(item => {
-                             console.log("item",item)
+                            console.log("item", item)
                             return <Marker
                                 key={item.id}
                                 position={{
@@ -43,23 +43,17 @@ export class Googlemap extends Component {
                                     lng: item.geometry.location.lng()
                                 }}
                             >
+                                <InfoWindow 
+                                visible={true}
+                                 position={{
+                                    lat: item.geometry.location.lat(),
+                                    lng: item.geometry.location.lng()
+                                 }}
+                                 >
+                                    <h3>hello</h3>
+                                </InfoWindow>
                             </Marker>
                         })}
-                        
-                        {/* <Marker
-                            name={}
-                            position={{lat: 37.759703, lng: -122.428093}}
-                            onClick={this.onMarkerClick} 
-                        />
-                        <InfoWindow
-                        marker={this.state.activeMarker}
-                        visible={this.state.showingInfoWindow}>
-                        
-                            <div>
-                                <h1>{this.state.selectedPlace.name}</h1>
-                            </div>
-                        </InfoWindow> */}
-
                     </Map>
                 </div>
             </div>
