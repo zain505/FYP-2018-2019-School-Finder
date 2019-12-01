@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import * as firebase from 'firebase';
 import Blogin from '../Home/Blogin';
 import 'react-notifications/lib/notifications.css';
-import {NotificationContainer, NotificationManager} from 'react-notifications';
+import { NotificationContainer, NotificationManager } from 'react-notifications';
 
 export class Userlogin extends Component {
     constructor(props) {
@@ -15,27 +15,27 @@ export class Userlogin extends Component {
             password: ""
         }
     }
-    onChangeEmail=(e)=>{
-        this.setState({email:e.target.value})
+    onChangeEmail = (e) => {
+        this.setState({ email: e.target.value })
     }
-    onChangePassword=(e)=>{
+    onChangePassword = (e) => {
         this.setState({
-            password:e.target.value
+            password: e.target.value
         })
     }
 
-    onLoginUser=()=>{
-        const email=this.state.email;
-        const password=this.state.password;
-        firebase.auth().signInWithEmailAndPassword(email,password)
-        .then((u)=>{
-            //console.log('successfully sign In',u)
-            NotificationManager.success(`Successfully login with ${this.state.email} `,'Horrahh!!',9000);
-        })
-        .catch((err)=>{
-            //console.log(err.toString())
-            NotificationManager.error(err.toString(),'Something went wrong',9000);
-        })
+    onLoginUser = () => {
+        const email = this.state.email;
+        const password = this.state.password;
+        firebase.auth().signInWithEmailAndPassword(email, password)
+            .then((u) => {
+                //console.log('successfully sign In',u)
+                NotificationManager.success(`Successfully login with ${this.state.email} `, 'Horrahh!!', 9000);
+            })
+            .catch((err) => {
+                //console.log(err.toString())
+                NotificationManager.error(err.toString(), 'Something went wrong', 9000);
+            })
     }
 
 
@@ -43,7 +43,7 @@ export class Userlogin extends Component {
         return (
             <div>
                 <div className="container">
-                <Blogin/>
+                    <Blogin />
                     <div style={{ marginTop: "130px" }} className="row">
                         <div className="col-sm-4"></div>
                         <div className="col-sm-4">
@@ -91,9 +91,9 @@ export class Userlogin extends Component {
                                 <div className="col-sm-2"></div>
                                 <div className="col-sm-8">
                                     <Link to="/">
-                                    <button className="btn btn-dark" onClick={this.onLoginUser} style={{ width: "100%" }}>Login Me</button>
+                                        <button className="btn btn-dark" onClick={this.onLoginUser} style={{ width: "100%" }}>Login Me</button>
                                     </Link>
-                                    
+
                                 </div>
                                 <div className="col-sm-2"></div>
                             </div>
@@ -105,11 +105,11 @@ export class Userlogin extends Component {
                         <div className="col-sm-4">
                             <div className="row">
                                 <div className="col-sm-6">
-                                    <Link to="/UserAccount">Register Me</Link>
+
+                                    <Link to="/" className="float-left"> <i className="fas fa-home"></i><span className="ml-1">Go Home</span>
+                                    </Link>
                                 </div>
                                 <div className="col-sm-6">
-                                    <Link to="/" className="float-right"> <i className="fas fa-home"></i><span className="ml-1">Go Home</span>
-                                    </Link>
                                 </div>
                             </div>
                         </div>

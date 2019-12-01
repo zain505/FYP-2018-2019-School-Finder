@@ -42,14 +42,13 @@ export class NavbarLogin extends Component {
                                 <div className="dropdown-menu" style={{ width: "210px" }}>
                                     <div className="d-flex justify-content-between p-1">
                                         <div className="d-flex flex-column">
-                                            <span className="text-secondary">Dummy Name</span>
-                                            <small className="text-secondary">zain.rehman155@gmail.com</small>
+                                            <small className="text-secondary">{this.props.user.email}</small>
                                         </div>
                                         <img src={avatar} style={{ width: "30px", height: "30px", borderRadius: "10px" }} alt="avatar-pic" />
                                     </div>
                                     <div className="d-flex justify-content-between mt-3 bg-light">
-                                        <Link to="/UserProfile">
-                                            <button className="btn btn-primary">Dashboard</button>
+                                        <Link to="/UserAccount">
+                                            <button className="btn btn-primary">Admin Panel</button>
                                         </Link>
                                         <Link to="/" onClick={this.onLogOut}>
                                             <button className="btn btn-default border">signOut</button>

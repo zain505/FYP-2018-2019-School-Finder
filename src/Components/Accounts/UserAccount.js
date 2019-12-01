@@ -117,6 +117,7 @@ export class UserAccount extends Component {
   onChangeSubmit = () => {
     firebase.database().ref('Details').push({
       Year: this.state.feeYear,
+      Name:this.state.schoolName,
       Admission_Fee: this.state.admissionTestFee,
       Registration_Fee: this.state.registrationFee,
       Transport_Fee: this.state.transportFee,
