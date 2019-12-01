@@ -1,243 +1,293 @@
 import React, { Component } from 'react'
-import DatePicker from 'react-date-picker';
+import Blogin from '../Home/Blogin';
 import Select from 'react-select';
 import { Link } from 'react-router-dom';
-import pic from './school.png'
 import firebase from 'firebase'
 
-const options = [
-  { value: 'Male', label: 'Male' },
-  { value: 'Female', label: 'Female' },
-  { value: 'Others', label: 'Others' },
-];
-
-const options2 = [
-  { value: '15', label: '15 yo' },
-  { value: '16', label: '16 yo' },
-  { value: '17', label: '17 yo' },
-  { value: '18', label: '18 yo' },
-  { value: '19', label: '19 yo' },
-  { value: '20', label: '20 yo' },
-  { value: '21', label: '21 yo' },
-  { value: '22', label: '22 yo' },
-  { value: '23', label: '23 yo' },
-  { value: '24', label: '24 yo' },
-  { value: '25', label: '25+' },
-];
-
-const options3 = [
-  { value: 'Lahore', label: 'Lahore' },
-  { value: 'Islamabad', label: 'Islamabad' },
-  { value: 'Karachi', label: 'Karachi' },
-  { value: 'Bhawalpur', label: 'Bhawalpur' },
-  { value: 'Multan', label: 'Multan' },
-  { value: 'Sahiwal', label: 'Sahiwal' },
-  { value: 'Haiderabad', label: 'Haiderabad' },
-  { value: 'Sakhar', label: 'Sakhar' },
-  { value: 'Sadiqabad', label: 'Sadiqabad' }
-];
+const vacancyOptions = [{
+  label: "1",
+  value: "1"
+}, {
+  label: "2",
+  value: "2"
+},
+{
+  label: "3",
+  value: "3"
+},
+{
+  label: "4",
+  value: "4"
+},
+{
+  label: "5",
+  value: "5"
+},
+{
+  label: "5+",
+  value: "5+"
+},
+{
+  label: "10+",
+  value: "10+"
+}]
 export class UserAccount extends Component {
 
   constructor(props) {
     super(props)
 
     this.state = {
-      name: "",
-      date: "",
-      email: "",
-      gender: "",
-      age: "",
-      phone: "",
-      add: "",
-      city:"",
-      school:"",
-      principl:"",
-      comment:""
+      schoolName:"",
+      feeYear:"",
+      admissionTestFee:"",
+      registrationFee:"",
+      transportFee:"",
+      booksFee:"",
+      uniformFee:"",
+      examFee:"",
+      preSchool:"",
+      preKG:"",
+      kgToGrade1:"",
+      grade2ToGrade5:"",
+      grade6ToGrade8:"",
+      grade9ToGrade10:"",
+      jobPosition:"",
+      jobNumberVacancy:"",
+      jobQualification:"",
+      jobDepartment:""
 
     }
   }
-  onChangeDate = (date) => { 
-    this.setState({ date }) 
-   }
-  
-
-  onChangeName = (e) => {
-    this.setState({ name: e.target.value })
-
+  onSchoolName = (e) => {
+    this.setState({ schoolName:e.target.value })
   }
-  onChangePhone = (e) => {
-    this.setState({ phone: e.target.value })
-
+  onChangeYear = (e) => {
+    this.setState({ feeYear:e.target.value })
   }
-  onChangeAddress = (e) => {
-    this.setState({ add: e.target.value })
-
+  onAdmissionFee = (e) => {
+    this.setState({ admissionTestFee:e.target.value })
+  }
+  onRegistrationFee = (e) => {
+    this.setState({ registrationFee:e.target.value })
+  }
+  onTransportFee = (e) => {
+    this.setState({ transportFee:e.target.value })
+  }
+  onBooksFee = (e) => {
+    this.setState({ booksFee:e.target.value })
+  }
+  onUniformFee = (e) => {
+    this.setState({ uniformFee:e.target.value })
+  }
+  onExamFee = (e) => {
+    this.setState({ examFee:e.target.value })
+  }
+  onPreSchool = (e) => {
+    this.setState({ preSchool:e.target.value })
+  }
+  onPreKg = (e) => {
+    this.setState({ preKG:e.target.value })
+  }
+  onKgToGrade1 = (e) => {
+    this.setState({ kgToGrade1:e.target.value })
+  }
+  onGrade2ToGrade5 = (e) => {
+    this.setState({ grade2ToGrade5:e.target.value })
+  }
+  onGrade6ToGrade8 = (e) => {
+    this.setState({ grade6ToGrade8:e.target.value })
+  }
+  onGrade9ToGrade10 = (e) => {
+    this.setState({ grade9ToGrade10:e.target.value })
+  }
+  onJobPosition = (e) => {
+    this.setState({ jobPosition:e.target.value })
+  }
+  onNumberVacancy = (jobNumberVacancy) => {
+    this.setState({ jobNumberVacancy })
+  }
+  onJobQualification = (e) => {
+    this.setState({ jobQualification:e.target.value })
+  }
+  onJobDepartment = (e) => {
+    this.setState({ jobDepartment:e.target.value })
   }
 
-  onChangePriciple = (e) => {
-    this.setState({ principl: e.target.value })
 
-  }
-
-  onChangeComment = (e) => {
-    this.setState({ comment: e.target.value })
-
-  }
-
-  onChangeSchool = (e) => {
-    this.setState({ school: e.target.value })
-
-  }
-  onChangeEmail = (e) => {
-    this.setState({ email: e.target.value })
-  }
-
-  onChangeGender = (gender) => {
-    this.setState({ gender })
-    console.log(this.state.gender)
-  }
-
-  onChangeCity = (city) => {
-    this.setState({ city })
-  }
-
-  onChangeAge = (age) => {
-    this.setState({ age })
-  }
-  // setValues = (values) => {
-  //   console.log("hello date", values);
-  // }
-
-  onChangeSubmit=()=>{
-    firebase.database().ref('User-signup').push({
-      name: this.state.name,
-      date: this.state.date,
-      email: this.state.email,
-      gender: this.state.gender,
-      age: this.state.age,
-      phone: this.state.phone,
-      add: this.state.add,
-      city:this.state.city,
-      school:this.state.school,
-      principl:this.state.principl,
-      comment:this.state.comment
+  onChangeSubmit = () => {
+    firebase.database().ref('Details').push({
+      Year: this.state.feeYear,
+      Admission_Fee: this.state.admissionTestFee,
+      Registration_Fee: this.state.registrationFee,
+      Transport_Fee: this.state.transportFee,
+      Uniform_Fee: this.state.uniformFee,
+      Books_Fee: this.state.booksFee,
+      Exam_Fee: this.state.examFee,
+      PreSchool_Fee:this.state.preSchool,
+      PreKg_Fee:this.state.preKG,
+      KgToGrade1_Fee:this.state.kgToGrade1,
+      Grade2ToGrade5_Fee:this.state.grade2ToGrade5,
+      Grade6ToGrade8_Fee:this.state.grade6ToGrade8,
+      Grade9ToGrade10_Fee:this.state.grade9ToGrade10,
+      JobPosition_Fee:this.state.jobPosition,
+      JobVacancy_Fee:this.state.jobNumberVacancy,
+      JobQualification_Fee:this.state.jobQualification,
+      JobDepartment_Fee:this.state.jobDepartment,
     })
   }
 
   render() {
     return (
-      <div className="container">
-        <div className="row mt-2">
-          <div className="col-sm-5">
-            <span><i style={{ color: "grey" }} className="fas fa-users fa-2x float-left"></i></span>
-            <h4 className="float-left ml-1" style={{ color: "grey" }}>User SignUp</h4>
-          </div>
-          <div className="col-sm-2">
-            <img src={pic} alt="loading-logo" style={{ height: "30px", width: "110px" }} />
-          </div>
-          <div className="col-sm-5">
-
-            <Link to="/Userlogin" style={{ color: "grey", float: "right" }} >
-              <span>I have already an account</span>
-            </Link>
-            <span className="ml-1 mr-1 float-right">|</span>
-            <Link to="App" style={{ color: "grey", float: "right" }} >
-              <i className="fas fa-home"></i><span className="ml-1">Home</span>
-            </Link>
-          </div>
-        </div>
-        <div className="row mt-2">
-          <div className="col-sm-12">
-            <div className="card">
-              <div className="card-body">
-                <div className="row">
-                  <div className="col-sm-6">
-                    <b style={{ color: "grey" }}>Name</b><br />
-                    <input className="border border-top-0" style={{ width: "100%" }} type="text" placeholder="Name" value={this.state.name} onChange={this.onChangeName} />
+      <div>
+        <div className="container">
+          <Blogin />
+          <div className="card">
+            <div className="card-header">
+              <div className="d-flex justify-content-between">
+                <h1 className="lead font-weight-bold">Add New Fee Structure and Post A Job</h1>
+                <button className="btn btn-primary btn-sm">Reset All</button>
+              </div>
+            </div>
+            <div className="card-body">
+              <h3>Fees Detail</h3>
+              <div className="row">
+                <div className="col-sm-6">
+                  <div className="d-flex flex-column">
+                    <span className="lead">School Name</span>
+                    <input className="form-control" placeholder="ABC school" onChange={this.onSchoolName} value={this.state.schoolName} />
                   </div>
-                  <div className="col-sm-6">
-                    <b style={{ color: "grey" }}>Email</b><br />
-                    <input className=" border border-top-0" style={{ width: "100%" }} type="Email" placeholder="Email" value={this.state.email} onChange={this.onChangeEmail} />
+                </div>
+                <div className="col-sm-6">
+                  <div className="d-flex flex-column">
+                    <span className="lead">Fees Year</span>
+                    <input className="form-control" placeholder="ex (2019-2020)" onChange={this.onChangeYear} value={this.state.feeYear} />
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-        <div className="row mt-2">
-          <div className="col-sm-12">
-            <div className="card">
-              <div className="card-body">
-                <div className="row">
-                  <div className="col-sm-6">
-                    <b style={{ color: "grey" }}>Date of Birth</b><br />
-                    <DatePicker
-                      onChange={this.onChangeDate}
-                      value={this.state.date}
-                    />
-                  </div>
-                  <div className="col-sm-6">
-                    <b style={{ color: "grey" }}>Gender</b><br />
-                    <Select
-                      options={options}
-                      onChange={this.onChangeGender}
-                      value={this.state.gender}
-                    />
+              <div className="row py-2">
+                <div className="col-sm-6">
+                  <div className="d-flex flex-column">
+                    <span className="lead">Admission Test Fee</span>
+                    <input className="form-control" placeholder="ex (PKR-500)" onChange={this.onAdmissionFee} value={this.state.admissionTestFee} />
                   </div>
                 </div>
-                <div className="row mt-2">
-                  <div className="col-sm-6">
-                    <b style={{ color: "grey" }}>Phone Number</b><br />
-                    <input className=" border border-top-0" style={{ width: "100%" }} type="text" placeholder="Phone Number" onChange={this.onChangePhone} value={this.state.phone} />
-                  </div>
-                  <div className="col-sm-6">
-                    <b style={{ color: "grey" }}>Age</b><br />
-                    <Select
-                      options={options2}
-                      onChange={this.onChangeAge}
-                      value={this.state.age}
-                    />
-                  </div>
-                </div>
-                <div className="row mt-2">
-                  <div className="col-sm-6">
-                    <b style={{ color: "grey" }}>Address</b><br />
-                    <input className=" border border-top-0" style={{ width: "100%" }} type="text" placeholder="Address" onChange={this.onChangeAddress} value={this.state.add} />
-                  </div>
-                  <div className="col-sm-6">
-                    <b style={{ color: "grey" }}>City</b><br />
-                    <Select
-                      options={options3}
-                      onChange={this.onChangeCity}
-                      value={this.state.city}
-                    />
-                  </div>
-                </div>
-                <div className="row mt-2">
-                  <div className="col-sm-6">
-                    <b style={{ color: "grey" }}>Which School Your Kids/Siblings Are Going?</b><br />
-                    <input className=" border border-top-0" style={{ width: "100%" }} type="text" placeholder="School name" onChange={this.onChangeSchool} value={this.state.school} />
-                  </div>
-                  <div className="col-sm-6">
-                    <b style={{ color: "grey" }}>Your School's principal Name </b><br />
-                    <input className=" border border-top-0" style={{ width: "100%" }} type="text" placeholder="Principal name" onChange={this.onChangePriciple} value={this.state.principl} />
-                  </div>
-                </div>
-                <div className="row mt-2">
-                  <div className="col-sm-12">
-                    <b style={{ color: "grey" }}>Write A Comment About Your School </b><br />
-                    <input className=" border border" style={{ width: "100%", height: "60px" }} type="text" placeholder="Comment" onChange={this.onChangeComment} value={this.state.comment} />
+                <div className="col-sm-6">
+                  <div className="d-flex flex-column">
+                    <span className="lead">Registration Fee</span>
+                    <input className="form-control" placeholder="ex (PKR-500)" onChange={this.onRegistrationFee} value={this.state.registrationFee} />
                   </div>
                 </div>
               </div>
+              <div className="row py-2">
+                <div className="col-sm-6">
+                  <div className="d-flex flex-column">
+                    <span className="lead">Transport Fee</span>
+                    <input className="form-control" placeholder="ex (PKR-500)" onChange={this.onTransportFee} value={this.state.transportFee} />
+                  </div>
+                </div>
+                <div className="col-sm-6">
+                  <div className="d-flex flex-column">
+                    <span className="lead">Books Fee</span>
+                    <input className="form-control" placeholder="ex (PKR-500)" onChange={this.onBooksFee} value={this.state.booksFee} />
+                  </div>
+                </div>
+              </div>
+              <div className="row py-2">
+                <div className="col-sm-6">
+                  <div className="d-flex flex-column">
+                    <span className="lead">Uniform Fee</span>
+                    <input className="form-control" placeholder="ex (PKR-500)" onChange={this.onUniformFee} value={this.state.uniformFee} />
+                  </div>
+                </div>
+                <div className="col-sm-6">
+                  <div className="d-flex flex-column">
+                    <span className="lead">Exam Fee</span>
+                    <input className="form-control" placeholder="ex (PKR-500)" onChange={this.onExamFee} value={this.state.examFee} />
+                  </div>
+                </div>
+              </div>
+              <div className="row py-2">
+                <div className="col-sm-6">
+                  <div className="d-flex flex-column">
+                    <span className="lead">Pre School</span>
+                    <input className="form-control" placeholder="ex (PKR-500)" onChange={this.onPreSchool} value={this.state.preSchool} />
+                  </div>
+                </div>
+                <div className="col-sm-6">
+                  <div className="d-flex flex-column">
+                    <span className="lead">Pre KG</span>
+                    <input className="form-control" placeholder="ex (PKR-500)" onChange={this.onPreKg} value={this.state.preKG} />
+                  </div>
+                </div>
+              </div>
+              <div className="row py-2">
+                <div className="col-sm-6">
+                  <div className="d-flex flex-column">
+                    <span className="lead">KG To Grade1</span>
+                    <input className="form-control" placeholder="ex (PKR-500)" onChange={this.onKgToGrade1} value={this.state.kgToGrade1} />
+                  </div>
+                </div>
+                <div className="col-sm-6">
+                  <div className="d-flex flex-column">
+                    <span className="lead">Grade2 To Grade5</span>
+                    <input className="form-control" placeholder="ex (PKR-500)" onChange={this.onGrade2ToGrade5} value={this.state.grade2ToGrade5} />
+                  </div>
+                </div>
+              </div>
+              <div className="row py-2">
+                <div className="col-sm-6">
+                  <div className="d-flex flex-column">
+                    <span className="lead">Grade6 To Grade8</span>
+                    <input className="form-control" placeholder="ex (PKR-500)" onChange={this.onGrade6ToGrade8} value={this.state.grade6ToGrade8} />
+                  </div>
+                </div>
+                <div className="col-sm-6">
+                  <div className="d-flex flex-column">
+                    <span className="lead">Grade9 To Grade10</span>
+                    <input className="form-control" placeholder="ex (PKR-500)" onChange={this.onGrade9ToGrade10} value={this.state.grade9ToGrade10} />
+                  </div>
+                </div>
+              </div>
+              <h3>Job Detail</h3>
+              <div className="row py-2">
+                <div className="col-sm-6">
+                  <div className="d-flex flex-column">
+                    <span className="lead">Position</span>
+                    <input className="form-control" placeholder="ex. Chimistry Teacher" onChange={this.onJobPosition} value={this.state.jobPosition} />
+                  </div>
+                </div>
+                <div className="col-sm-6">
+                  <div className="d-flex flex-column">
+                    <span className="lead">Number of Vacancies</span>
+                    <div class="form-group">
+                      <Select
+                      options={vacancyOptions}
+                      onChange={this.onNumberVacancy}
+                      value={this.state.jobNumberVacancy}
+                    />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="row py-2">
+                <div className="col-sm-6">
+                  <div className="d-flex flex-column">
+                    <span className="lead">Required Qualification</span>
+                    <input className="form-control" placeholder="ex. BS(Chemistry)" onChange={this.onJobQualification} value={this.state.jobQualification} />
+                  </div>
+                </div>
+                <div className="col-sm-6">
+                  <div className="d-flex flex-column">
+                    <span className="lead">Department / Category</span>
+                    <input className="form-control" placeholder="ex. Chemistry" onChange={this.onJobDepartment} value={this.state.jobDepartment} />
+                  </div>
+                </div>
+              </div>
+              <div className="d-flex justify-content-end py-2">
+                <button className="btn btn-outline-primary mx-2" onClick={this.onChangeSubmit}>Save</button>
+                <button className="btn btn-outline-light border text-dark"> Go Back</button>
+              </div>
             </div>
-          </div>
-        </div>
-        <div className="row mt-1">
-          <div className="col-sm-12">
-            <button className="btn btn-default" style={{ backgroundColor: "grey", color: "white" }} onClick={this.onChangeSubmit}>Save</button>
-            <button className="btn btn-default ml-1" style={{ backgroundColor: "grey", color: "white" }}>Reset</button>
-            <Link to="/UserProfile">abc</Link>
           </div>
         </div>
       </div>

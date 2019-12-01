@@ -13,9 +13,9 @@ export class Filter extends Component {
           {/*<Searchbar searchTerm={this.props.searchTerm} onSearchChange={this.props.onSearchChange}/>*/}
           <div className="mt-1">
           {/* <Searchbar getdata={this.props.getdata}/> */}
-          <Searchbar/>
+          {/* <Searchbar/> */}
           </div>
-          <Feesfilter />
+          {/* <Feesfilter /> */}
         </div>
         
       

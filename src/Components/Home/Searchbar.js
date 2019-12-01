@@ -78,7 +78,7 @@ export class Searchbar extends Component {
                         <div className="col-sm-8">
 
                             <div className="input-group">
-                                <input style={style1} type="text" ref="search" className="form-control" placeholder="Search here" />
+                                <input style={style1} type="text" ref="search" className="form-control shadow bg-white rounded" placeholder="Search here" />
                             </div>
 
                         </div>
@@ -88,15 +88,6 @@ export class Searchbar extends Component {
                     <div className="row">
                         <div className="col-sm-12">
                             <div className="d-flex justify-content-center pt-2">
-                                {/* {
-                                    loading && <Link to="/search">
-                                    <button ref="search2" className="btn btn-primary border mr-1">
-                                        {loading && <img src={spinner} style={{ height: "25px", width: "25px" }} alt="spinner" />}
-                                        <i className="fas fa-search mr-1"></i>
-                                        <span>Search</span>
-                                    </button>
-                                </Link>
-                                } */}
                                 <Link to="/search">
                                     <button ref="search2" className="btn btn-primary border mr-1">
                                         {loading && <img src={spinner} style={{ height: "25px", width: "25px" }} alt="spinner" />}

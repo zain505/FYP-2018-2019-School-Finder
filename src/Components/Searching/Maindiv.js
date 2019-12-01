@@ -17,7 +17,7 @@ export class Maindiv extends Component {
             return this.props.mysearch.map(item => {
                 return (
                     <div key={item.id}>
-                        <div className="row mt-1 mb-3" style={{ backgroundColor: "#ebeced",boxShadow:"grey" }}>
+                        <div className="row mt-1 mb-1" style={{ backgroundColor: "#ebeced",boxShadow:"grey" }}>
                             <div className="col-sm-12">
                                 <div className="row">
                                     <div className="col-sm-3 border-right">
