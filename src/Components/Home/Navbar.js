@@ -12,10 +12,10 @@ export class Navbar extends Component {
                 <div className="row">
                     <div className="col-sm-12 mt-1 pr-5">
                         <div className="d-flex justify-content-end p-2">
-                            <Link to="/" className="text-dark" >
+                            <Link to="/MobileApp" className="text-dark" >
                                 <i className="fab fa-android mr-1 text-dark"></i>
                                 Download Mobile App</Link>
-                            <Link to="/" className="text-dark" >
+                            <Link to="/Faq" className="text-dark" >
                                 <i className="fab fa-readme pl-3 mr-1 text-dark"></i>
                                 User GuidLine</Link>
                             <Link to="/" className="text-dark" >

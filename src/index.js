@@ -11,6 +11,8 @@ import Userlogin from './Components/Accounts/Userlogin'
 import UserProfile from './Components/Accounts/UserProfile'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import * as firebase from 'firebase';
+import Faq from './Components/Home/Faq';
+import MobileApp from './Components/Home/MobileApp';
 
 const config={
     apiKey: "AIzaSyDEbHtP0-XDfu-S6WLT0uDYzKZrkqJpUf0",
@@ -36,6 +38,8 @@ class Routes extends React.Component {
                     <Switch>
                         <Route path="/Search" render={ () => <Search list={this.state.list}/>}></Route>
                         <Route path="/Map" render={ () => <Map />}></Route>
+                        <Route path="/Faq" render={ () => <Faq />}></Route>
+                        <Route path="/MobileApp" render={ () => <MobileApp />}></Route>
                         <Route path="/UserAccount" render={() => <UserAccount />}></Route>
                         <Route path="/Userlogin" render={() => <Userlogin />}></Route>
                         <Route path="/UserProfile" render={() => <UserProfile />}></Route>

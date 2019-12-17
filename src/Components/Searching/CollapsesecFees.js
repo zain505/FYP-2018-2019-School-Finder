@@ -9,11 +9,11 @@ export class CollapsesecFees extends Component {
             School_fee: null
         }
     }
-    printFees=()=> {
+    printFees = () => {
         var prtContent = document.getElementById("feeprint").innerHTML;
         var WinPrint = window.open('', '', 'left=0,top=0,width=900,height=900,toolbar=0,scrollbars=0,status=0');
         WinPrint.document.write('<html><head>');
-        WinPrint.document.write('<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="screen,print">') 
+        WinPrint.document.write('<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="screen,print">')
         WinPrint.document.write('</head><body">');
         WinPrint.document.write(prtContent);
         WinPrint.document.write('</body></html>');
@@ -21,16 +21,16 @@ export class CollapsesecFees extends Component {
             WinPrint.focus()
             WinPrint.print();
             WinPrint.close()
-        },500)
+        }, 500)
 
     }
     render() {
-        const Fees = fees_structure[Math.floor(Math.random() * 10) + 1]
+        const Fees = fees_structure[Math.floor(Math.random() * 10)]
         return (
             <div>
                 <div id="feeprint" className="d-flex flex-column">
                     <h3>Fees For Year {Fees.Year === undefined ? "2019-2020" : Fees.Year}</h3>
-                    
+                    <span className="lead"> <u>{this.props.map.name}</u> </span>
                     <div className="d-flex justify-content-between pt-3 border-bottom">
                         <span className="text-secondary ">Admission Test Fee</span>
                         <span className="pr-3">{Fees.Admission_test === "" ? "Not Available" : "PKR " + Fees.Admission_test}</span>
@@ -84,7 +84,7 @@ export class CollapsesecFees extends Component {
                     </div>
                 </div>
                 <div className="d-flex justify-content-start py-2 px-2">
-                <button className="btn btn-primary" onClick={this.printFees}>Save As PDF</button>
+                    <button className="btn btn-primary" onClick={this.printFees}>Save As PDF</button>
                 </div>
             </div>
         )

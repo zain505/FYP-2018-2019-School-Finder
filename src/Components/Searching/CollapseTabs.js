@@ -34,7 +34,7 @@ export class CollapseTabs extends Component {
                         <CollapsesecComments map={this.props.map} />
                     </TabPanel>
                     <TabPanel>
-                        <CollapsesecFees />
+                        <CollapsesecFees map={this.props.map} />
                     </TabPanel>
                     <TabPanel>
                         <CollapsesecJobs />

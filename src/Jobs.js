@@ -1,11 +1,11 @@
-export const fees_structure = [
+export const job_structure = [
     {
         id: 1,
         jobPosition:"Math Teachcer",
         noOfVacancy:"2",
         Department:"Math",
         RequiredQualification:"BS Math"
-    },
+    }, 
     {
         id: 2,
         jobPosition:"English Teachcer",
@@ -15,10 +15,10 @@ export const fees_structure = [
     },
     {
         id: 3,
-        jobPosition:"",
-        noOfVacancy:"",
-        Department:"",
-        RequiredQualification:""
+        jobPosition:"Chemistry Teacher",
+        noOfVacancy:"5",
+        Department:"Chemistry",
+        RequiredQualification:"MS Chemistry"
     },
     {
         id: 4,
@@ -35,3 +35,6 @@ export const fees_structure = [
         RequiredQualification:"BSCS"
     },
 ]
+export default {
+    job_structure
+}
